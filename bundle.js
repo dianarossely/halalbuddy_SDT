@@ -754,7 +754,7 @@ angular.module('app').factory('Articles', function () {
 					$scope.newIngredientForm = true;
 					**/
 					// go to ingredient editor
-					window.location.href = '/#/ingredients/new';
+					window.location.href = '/#/two/ingredients/new';
 				};
 
 				$scope.new = function ($event) {
@@ -995,7 +995,7 @@ angular.module('app').factory('Articles', function () {
 					$scope.mode = 'edit';
 					**/
 					// go to ingredient editor
-					window.location.href = '/#/ingredients/' + $scope.id;
+					window.location.href = '/#/two/ingredients/' + $scope.id;
 				};
 
 				$scope.delete = function ($event) {
@@ -1158,7 +1158,7 @@ angular.module('app').factory('Articles', function () {
 				};
 
 				$scope.edit = function ($event, articleId) {
-					window.location.href = '/#/articles/' + articleId;
+					window.location.href = '/#/two/articles/' + articleId;
 				};
 
 				$scope.delete = function ($event, articleId) {
@@ -1231,7 +1231,7 @@ angular.module('app').factory('Articles', function () {
 
 					if (error && error !== 'new') {
 						alert(error);
-						window.location.href = '/#/articles';
+						window.location.href = '/#/two/articles';
 					}
 				});
 
@@ -1287,7 +1287,7 @@ angular.module('app').factory('Articles', function () {
 
 				$scope.cancel = function ($event) {
 					if (confirm('Discard all changes?')) {
-						window.location.href = '/#/articles';
+						window.location.href = '/#/two/articles';
 					}
 				};
 			}
@@ -1384,7 +1384,7 @@ angular.module('app').factory('Articles', function () {
 
 					if (error && error !== 'new') {
 						alert(error);
-						window.location.href = '/#/ingredients';
+						window.location.href = '/#/two/ingredients';
 					}
 				});
 
@@ -1566,7 +1566,7 @@ angular.module('app').factory('Articles', function () {
 
 				$scope.cancel = function ($event) {
 					if (confirm('Discard all changes?')) {
-						window.location.href = '/#/ingredients';
+						window.location.href = '/#/two/ingredients';
 					}
 				};
 			}
