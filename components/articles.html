@@ -1,0 +1,52 @@
+<div class="container-fluid">
+	<div class="row" style="margin-top: 15px">
+		<div class="col-md-10">
+			<form class="form-inline">
+			  <div class="form-group">
+			    <label>Filter</label>
+			    <input type="text" class="form-control" placeholder="Title" ng-model="filter" ng-change="onFilterChange()">
+			    <label style="margin-left: 10px">Page</label>
+				<span>
+					<button ng-repeat="i in totalPage track by $index" class="btn btn-link btn-xs" ng-click="toPage($index)">{{$index + 1}}</button>
+				</span>
+			  </div>
+			</form>
+		</div>
+		<div class="col-md-2">
+			<button class="btn btn-block btn-primary" ng-click="edit($event, 'new')">New Article</button>
+		</div>
+	</div>
+	<div class="row" style="margin-top: 5px">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<table class="table table-bordered table-condensed table-hover">
+					<thead>
+						<tr>
+							<th>Title</th>
+							<th>Date Created</th>
+							<th>Date Modified</th>
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-repeat="item in articles | startFrom: currentPage * pageLimit | limitTo: pageLimit">
+							<td>{{item.title}}</td>
+							<td>{{item.createdAt}}</td>
+							<td>{{item.updatedAt}}</td>
+							<td style="text-align: center">
+								<button class="btn btn-sm btn-primary" style="margin: 5px" ng-click="edit($event, item._id)"><span class="glyphicon glyphicon-pencil"></span></button>
+								<button class="btn btn-sm btn-danger" style="margin: 5px" ng-click="delete($event, item._id)"><span class="glyphicon glyphicon-trash"></span></button>
+							</td>
+						</tr>
+						<tr ng-hide="articles.length || processing">
+							<td colspan="7"><i>No article found.</i></td>
+						</tr>
+						<tr ng-show="processing">
+							<td colspan="7"><i>Loading data please wait...</i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

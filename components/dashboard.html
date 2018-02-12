@@ -1,0 +1,13 @@
+<div class="container-fluid" style="background-color: #80bfbb">
+	<div class="row">
+		<div class="col-md-2">
+			<menu current="{{display}}"></menu>
+		</div>
+		<div class="col-md-10" style="min-height: 100vh; background-color: #ffffff" ng-switch="display">
+			<ingredients ng-switch-when="ingredients"></ingredients>
+			<ingredient ng-switch-when="ingredient" ingredient-id="{{ingredientId}}"></ingredient>
+			<articles ng-switch-when="articles"></articles>
+			<article-editor ng-switch-when="articleEditor" article-id="{{articleId}}"></article-editor>
+		</div>
+	</div>
+</div>

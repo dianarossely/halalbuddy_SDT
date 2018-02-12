@@ -1,0 +1,65 @@
+<tr ng-switch="mode">	
+	<td ng-switch-when="read">{{name}}</td>
+	<td ng-switch-when="read">{{code}}</td>
+	<td ng-switch-when="read">{{description}}</td>
+	<!--
+	<td ng-switch-when="read">{{status}}</td>
+	<td ng-switch-when="read">{{halalIf}}</td>
+	<td ng-switch-when="read">{{haramIf}}</td>
+	-->
+	<td ng-switch-when="edit" colspan="3">
+		<form class="form-horizontal">
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Name</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" placeholder="Name" ng-model="editInput.name">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Code</label>
+				<div class="col-sm-10">
+					<input type="text" class="form-control" placeholder="Code" ng-model="editInput.code">
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Description</label>
+				<div class="col-sm-10">
+					<textarea type="text" rows="3" class="form-control" placeholder="Description" ng-model="editInput.description"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Status</label>
+				<div class="col-sm-10">
+					<select class="form-control" ng-model="editInput.status">
+						<option value="Halal">Halal</option>
+						<option value="Haram">Haram</option>
+						<option value="Mushbooh">Mushbooh</option>
+						<option value="Depends">Depends</option>
+					</select>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Halal If</label>
+				<div class="col-sm-10">
+					<textarea type="text" rows="3" class="form-control" placeholder="Halal if..." ng-model="editInput.halalIf"></textarea>
+				</div>
+			</div>
+			<div class="form-group">
+				<label class="col-sm-2 control-label">Haram If</label>
+				<div class="col-sm-10">
+					<textarea type="text" rows="3" class="form-control" placeholder="Haram if..." ng-model="editInput.haramIf"></textarea>
+				</div>
+			</div>
+		</form>	
+	</td>
+	<td style="text-align: center">
+		<div ng-switch-when="read">
+			<button class="btn btn-sm btn-primary" style="margin: 5px" ng-click="edit($event)"><span class="glyphicon glyphicon-pencil"></span></button>
+			<button class="btn btn-sm btn-danger" style="margin: 5px" ng-click="delete($event)"><span class="glyphicon glyphicon-trash"></span></button>
+		</div>
+		<div ng-switch-when="edit">
+			<button class="btn btn-sm btn-success" style="margin: 5px" ng-click="save($event)"><span class="glyphicon glyphicon-floppy-saved"></span></button>
+			<button class="btn btn-sm btn-warning" style="margin: 5px" ng-click="cancel($event)"><span class="glyphicon glyphicon-floppy-remove"></span></button>
+		</div>
+	</td>
+</tr>

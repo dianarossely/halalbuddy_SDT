@@ -1,0 +1,147 @@
+<div class="container-fluid">
+	<div class="row" style="margin-top: 15px">
+		<div class="col-md-9">
+			<form class="form-inline">
+			  <div class="form-group">
+			    <label>Filter</label>
+			    <input type="text" class="form-control" placeholder="Name or code" ng-model="filter" ng-change="onFilterChange()">
+			    <label style="margin-left: 10px">Page</label>
+				<span>
+					<button ng-repeat="i in totalPage track by $index" class="btn btn-link btn-xs" ng-click="toPage($index)">{{$index + 1}}</button>
+				</span>
+				<br/>
+			  </div>
+			</form>
+		</div>
+		<div class="col-md-3" style="text-align: right">
+			<button class="btn btn-default" ng-hide="newIngredientForm" ng-click="release($event)">
+				<span>Release</span>
+				<br/>
+				<span> Food</span>
+				<br/>
+				<span style="font-size: 8px">{{latestVersion}}</span>
+			</button>
+
+			<button class="btn btn-default" ng-hide="newIngredientForm" ng-click="releaseCosmetic($event)">
+				<span>Release</span>
+				<br/>
+				<span> Cosmetics</span>
+				<br/>
+				<span style="font-size: 8px">{{latestCosmeticVersion}}</span>
+			</button>
+
+			<button class="btn btn-default" ng-hide="newIngredientForm" ng-click="releaseVege($event)">
+				<span>Release</span>
+				<br/>
+				<span> Vegetarian</span>
+				<br/>
+				<span style="font-size: 8px">{{latestVegetarianVersion}}</span>
+			</button>
+
+			<button class="btn btn-default" ng-hide="newIngredientForm" ng-click="releaseHazard($event)">
+				<span>Release</span>
+				<br/>
+				<span> Hazard</span>
+				<br/>
+				<span style="font-size: 8px">{{latestHazardVersion}}</span>
+			</button>
+
+			<button class="btn btn-primary" ng-hide="newIngredientForm" ng-click="showNewIngredientForm()">
+				New Ingredient
+				<br/>&nbsp;
+			</button>
+
+		</div>
+	</div>
+	<div class="row" style="margin-top: 5px">
+		<div class="col-md-12">
+			<div class="table-responsive">
+				<table class="table table-bordered table-condensed table-hover">
+					<thead>
+						<tr>
+							<th>Name</th>
+							<th>Code</th>
+							<th>Description</th>
+							<!--
+							<th>Status</th>
+							<th>Halal If</th>
+							<th>Haram If</th>
+							-->
+							<th>Actions</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr ng-show="newIngredientForm">
+							<td colspan="4">
+								<form class="form-horizontal">
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Name</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" placeholder="Name" ng-model="name">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Code</label>
+										<div class="col-sm-10">
+											<input type="text" class="form-control" placeholder="Code" ng-model="code">
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Description</label>
+										<div class="col-sm-10">
+											<textarea type="text" rows="3" class="form-control" placeholder="Description" ng-model="description"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Status</label>
+										<div class="col-sm-10">
+											<select class="form-control" ng-model="status">
+												<option value="Halal">Halal</option>
+												<option value="Haram">Haram</option>
+												<option value="Mushbooh">Mushbooh</option>
+												<option value="Depends">Depends</option>
+											</select>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Halal If</label>
+										<div class="col-sm-10">
+											<textarea type="text" rows="3" class="form-control" placeholder="Halal if..." ng-model="halalIf"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<label class="col-sm-2 control-label">Haram If</label>
+										<div class="col-sm-10">
+											<textarea type="text" rows="3" class="form-control" placeholder="Haram if..." ng-model="haramIf"></textarea>
+										</div>
+									</div>
+									<div class="form-group">
+										<div class="col-sm-offset-2 col-sm-10" style="text-align: right">
+											<button class="btn btn-success" ng-click="new($event)">Add New Ingredient</button>
+											<button class="btn btn-warning" ng-click="cancel()">Cancel</button>
+										</div>
+									</div>
+								</form>
+							</td>
+						</tr>
+						<tr ingredient-row
+							ng-repeat="item in ingredients | startFrom: currentPage * pageLimit | limitTo: pageLimit"
+							ingredient-id="{{item._id}}"
+							ingredient-name="{{item.name}}"
+							ingredient-code="{{item.code}}"
+							ingredient-description="{{item.description}}"
+							ingredient-status="{{item.halal.status}}"
+							ingredient-halal-if="{{item.halal.halalIf}}"
+							ingredient-haram-if="{{item.halal.haramIf}}"></tr>
+						<tr ng-hide="ingredients.length || processing">
+							<td colspan="4"><i>No ingredient found.</i></td>
+						</tr>
+						<tr ng-show="processing">
+							<td colspan="4"><i>Loading data please wait...</i></td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>

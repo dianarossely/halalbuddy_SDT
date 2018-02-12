@@ -1,0 +1,13 @@
+{
+	"name": "halalbuddy.server.admintwo",
+	"version": "1.0.0",
+	"dependencies": {
+		"angular": "1.5.*",
+		"angular-route": "1.5.*",
+		"bootstrap": "3.3.*",
+		"jquery": "3.1.*",
+		"underscore": "1.8.*",
+		"async": "2.0.*",
+		"simplemde": "1.11.*"
+	}
+}

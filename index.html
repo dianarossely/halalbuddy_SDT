@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+    <title>HalalBuddy - Admin 2.0</title>
+
+    <!-- jquery -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+
+    <!-- angularjs -->
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-route/angular-route.js"></script>
+
+    <!-- twitter bootstrap -->
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+
+    <!-- markdown editor -->
+    <link rel="stylesheet" type="text/css" href="bower_components/simplemde/dist/simplemde.min.css">
+    <script src="bower_components/simplemde/dist/simplemde.min.js"></script>
+
+    <!-- Other libraries -->
+    <script src="bower_components/async/dist/async.min.js"></script>
+    <script src="bower_components/underscore/underscore-min.js"></script>
+
+    <!-- app's js -->
+    <script src="js/bundle.js"></script>
+
+    <link rel="stylesheet" href="style.css">
+
+    <script type="text/javascript">
+
+    </script>
+  </head>
+
+  <body ng-app="app">
+    <div ng-view></div>
+    <div id="processingCover" style="display: none; z-index: 99">
+        <h1 style="margin-top: 50vh">Processing. Please wait...</h1>
+    </div>
+  </body>
+</html>

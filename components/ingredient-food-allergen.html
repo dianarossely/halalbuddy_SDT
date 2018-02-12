@@ -1,0 +1,99 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form>
+				<div class="form-group">
+					<label class="control-label">Status</label>
+					<div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="peanut"> Peanut
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="treeNut"> Tree Nut
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="milk"> Milk
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="egg"> Egg
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="wheat"> Wheat
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="soy"> Soy
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="fish"> Fish
+							</label>
+						</div>
+						<div class="checkbox">
+							<label>
+								<input type="checkbox" ng-model="shellfish"> Shellfish
+							</label>
+						</div>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Others</label>
+					<div>
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Others" 
+							ng-model="other"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Justifications</label>
+					<div>
+						<ingredient-justification 
+							ng-repeat="item in justifications" 
+							justification="item" 
+							remove-justification="removeJustification(justification)"
+						></ingredient-justification>
+					</div>
+					<div>
+						<button class="btn btn-default" ng-click="addJustification($event)">Add Justification</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Safety Information</label>
+					<div>
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Safety information" 
+							ng-model="safetyInformation"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Links</label>
+					<div>
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Links" 
+							ng-model="link"
+						></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>

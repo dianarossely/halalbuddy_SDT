@@ -1,0 +1,22 @@
+<div class="container-fluid">
+	<div class="row" style="margin-top: 15px">
+		<div class="col-md-12">
+			<form>
+				<div class="form-group">
+					<label>Title</label>
+					<input type="text" class="form-control" ng-model="title" placeholder="Article title...">
+				</div>
+				<div class="form-group">
+					<label>Cover Picture</label>
+					<input type="text" class="form-control" ng-model="picture" placeholder="Article cover picture url...">
+				</div>
+				<div class="form-group">
+					<label>Content</label>
+					<textarea class="form-control" placeholder="Article content..."></textarea>
+				</div>
+				<button class="btn btn-primary" ng-click="save($event)">Save</button>
+				<button class="btn btn-cancel" ng-click="cancel($event)">Cancel</button>
+			</form>
+		</div>
+	</div>
+</div>

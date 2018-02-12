@@ -1,0 +1,147 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form class="form-horizontal">
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Name</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Name" ng-model="name">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Other Names</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Other Names" 
+							ng-model="otherName"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Code</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Code" ng-model="code">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Description</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Description" 
+							ng-model="description"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Origin</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Origin" 
+							ng-model="origin"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Found In</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Found In" 
+							ng-model="foundIn"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Process</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Process" 
+							ng-model="process"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Chemical Formula</label>
+					<div class="col-sm-10">
+						<input type="text" class="form-control" placeholder="Chemical Formula" ng-model="chemicalFormula">
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Links</label>
+					<div class="col-sm-10">
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Links" 
+							ng-model="link"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="col-sm-2 control-label">Segments</label>
+					<div class="col-sm-10">
+						<!-- Nav tabs -->
+						<ul class="nav nav-tabs" role="tablist">
+							<li role="presentation" class="active">
+								<a aria-controls="halalFood" role="tab" data-toggle="tab" ng-click="activeTab($event)">Halal Food</a>
+							</li>
+							<li role="presentation">
+								<a aria-controls="halalCosmetic" role="tab" data-toggle="tab" ng-click="activeTab($event)">Halal Cosmetic</a>
+							</li>
+							<li role="presentation">
+								<a aria-controls="vegetarian" role="tab" data-toggle="tab" ng-click="activeTab($event)">Vegetarian</a>
+							</li>
+							<li role="presentation">
+								<a aria-controls="hazardousChemical" role="tab" data-toggle="tab" ng-click="activeTab($event)">Hazardous Chemical</a>
+							</li>
+							<li role="presentation">
+								<a aria-controls="foodAllergen" role="tab" data-toggle="tab" ng-click="activeTab($event)">Food Allergen</a>
+							</li>
+							<li role="presentation">
+								<a aria-controls="cosmeticAllergen" role="tab" data-toggle="tab" ng-click="activeTab($event)">Cosmetic Allergen</a>
+							</li>
+						</ul>
+
+						<!-- Tab panes -->
+						<div class="tab-content">
+							<div role="tabpanel" class="tab-pane active" id="halalFood">
+								<ingredient-halal-food></ingredient-halal-food>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="halalCosmetic">
+								<ingredient-halal-cosmetic></ingredient-halal-cosmetic>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="vegetarian">
+								<ingredient-vegetarian></ingredient-vegetarian>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="hazardousChemical">
+								<ingredient-hazardous-chemical></ingredient-hazardous-chemical>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="foodAllergen">
+								<ingredient-food-allergen></ingredient-food-allergen>
+							</div>
+							<div role="tabpanel" class="tab-pane" id="cosmeticAllergen">
+								<ingredient-cosmetic-allergen></ingredient-cosmetic-allergen>
+							</div>
+						</div>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+	<br/>
+	<div class="row">
+		<div class="col-md-12" style="text-align: right">
+			<button class="btn btn-primary" ng-click="save($event)">SAVE</button>
+			<button class="btn btn-default" ng-click="cancel($event)">Cancel</button>
+		</div>
+	</div>
+</div>

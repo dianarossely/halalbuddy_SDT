@@ -1,0 +1,66 @@
+<div class="container-fluid">
+	<div class="row">
+		<div class="col-md-12">
+			<form>
+				<div class="form-group">
+					<label class="control-label">Status</label>
+					<div>
+						<select class="form-control" ng-model="status">
+							<option value="Halal">Halal</option>
+							<option value="Haram">Haram</option>
+							<option value="Mushbooh">Mushbooh</option>
+							<option value="Depends">Depends</option>
+						</select>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Halal If</label>
+					<div>
+						<textarea type="text" rows="3" class="form-control" placeholder="Halal if..." ng-model="halalIf"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Haram If</label>
+					<div>
+						<textarea type="text" rows="3" class="form-control" placeholder="Haram if..." ng-model="haramIf"></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Justifications</label>
+					<div>
+						<ingredient-justification 
+							ng-repeat="item in justifications" 
+							justification="item" 
+							remove-justification="removeJustification(justification)"
+						></ingredient-justification>
+					</div>
+					<div>
+						<button class="btn btn-default" ng-click="addJustification($event)">Add Justification</button>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Safety Information</label>
+					<div>
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Safety information" 
+							ng-model="safetyInformation"
+						></textarea>
+					</div>
+				</div>
+				<div class="form-group">
+					<label class="control-label">Links</label>
+					<div>
+						<textarea 
+							rows="3" 
+							class="form-control" 
+							placeholder="Links" 
+							ng-model="link"
+						></textarea>
+					</div>
+				</div>
+			</form>
+		</div>
+	</div>
+</div>
